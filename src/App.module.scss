@@ -1,0 +1,14 @@
+.styledToastContainer {
+    :global(.Toastify__toast-container--bottom-right) {
+        bottom: 4em;
+        right: 1em;
+    }
+}
+
+.suspenseLoader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
