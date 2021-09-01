@@ -49,3 +49,33 @@ div.fieldTitle {
 .errorText {
     margin-top: 0;
 }
+
+.flexDirectionRow{
+    display: flex;
+    flex-direction: row;
+}
+
+.smallOpacity{
+    opacity: 0.2;
+}
+
+.creditCardDetailContainer{
+    margin-top: 47px;
+    margin-left: 81px;
+}
+
+.paragraph{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    &:first-child {
+        margin-bottom: 0px;
+        justify-content: space-between;
+    }
+}
+
+.checkContainer{
+    margin-top: 9px;
+    margin-right: 26px; 
+    margin-left: 25px;
+}

@@ -3,6 +3,8 @@ import { AppBar, Button } from "@material-ui/core";
 
 export const LoginButton = styled(Button)`
 
+  margin-right: 14px;
+
   &.MuiButtonBase-root{
     border: 1px solid ${(props) => props.theme.color.blue};
     border-radius: 8px;

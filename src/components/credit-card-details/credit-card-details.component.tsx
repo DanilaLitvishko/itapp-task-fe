@@ -25,7 +25,7 @@ import {
     Line,
     BenefitsString 
  } from './credit-card-details.styles'
- import styles from './EditCreditCard.module.scss';
+ import styles from './credit-card-detail.module.scss';
 
 
 interface IProps {
@@ -38,40 +38,40 @@ const ErrorMessage: React.FC<IProps> = ({ message }: IProps) => (
     </div>
 );
 
-const CreditCardDetail = () => {
-    const stripePromise = loadStripe('pk_test_51IspTpA4jB8HmSwEKZLkQHVaJjFxkEikHcVqiYGRDRQnlpodQslKMe7fYtKjSsXYN1NZMex1co4XTfliznye4mt200xdSLjYC5');
-      
-    const elementStyle= {
-        base: {
-            color: "#32325d",
-            margin: '10px 0 20px 0',
+const elementStyle= {
+    base: {
+        color: "#32325d",
+        margin: '10px 0 20px 0',
+        fontFamily: 'Manrope',
+        fontStyle: 'normal',
+        fontWeight: '800',
+        fontSize: '16px',
+        "::placeholder": {
+            color: '#000000',
             fontFamily: 'Manrope',
             fontStyle: 'normal',
             fontWeight: '800',
             fontSize: '16px',
-            "::placeholder": {
-                color: '#000000',
-                fontFamily: 'Manrope',
-                fontStyle: 'normal',
-                fontWeight: '800',
-                fontSize: '16px',
-            },
         },
-    };
+    },
+};
+
+const CreditCardDetail = () => {
+    const stripePromise = loadStripe('pk_test_51IspTpA4jB8HmSwEKZLkQHVaJjFxkEikHcVqiYGRDRQnlpodQslKMe7fYtKjSsXYN1NZMex1co4XTfliznye4mt200xdSLjYC5');
 
     // const initialTouched = Object.keys(queryErrors?.validationErrors).reduce(
     //     (res, key) => ({ ...res, [key]: true }),
     //     {}
     // );
 
-    const [cardNumberError, setCardNumberError] = useState('');
-    const [cardCVVError, setCardCVVError] = useState('');
-    const [cardDateError, setCardDateError] = useState('');
+    // const [cardNumberError, setCardNumberError] = useState('');
+    // const [cardCVVError, setCardCVVError] = useState('');
+    // const [cardDateError, setCardDateError] = useState('');
   
-    const [cardNumberComplete, setCardNumberComplete] = useState(false);
-    const [cardCVVComplete, setCardCVVComplete] = useState(false);
-    const [cardDateComplete, setCardDateComplete] = useState(false);
-    const [canSubmit, setCanSubmit] = useState(false);
+    // const [cardNumberComplete, setCardNumberComplete] = useState(false);
+    // const [cardCVVComplete, setCardCVVComplete] = useState(false);
+    // const [cardDateComplete, setCardDateComplete] = useState(false);
+    // const [canSubmit, setCanSubmit] = useState(false);
 
     // const { values, touched, errors, handleChange, handleBlur, handleSubmit, setFieldValue } =
     // useFormik({
@@ -107,18 +107,17 @@ const CreditCardDetail = () => {
 
     return (
         <MainContainer>
-            <div style={{display: 'flex', flexDirection: 'row'}}>
+            <div className={styles.flexDirectionRow}>
                 <Elements stripe={stripePromise}>
-                    <div style={{marginTop: '47px', marginLeft: '81px'}}>
+                    <div className={styles.creditCardDetailContainer}>
                         <CreditCardDetailsString>Enter your credit card details</CreditCardDetailsString>
-                        <CardNumber style={{marginBottom: '23px'}}>
-                            <div style={{opacity: 0.2}}>
+                        <CardNumber>
+                            <div className={styles.smallOpacity}>
                                 <CardNumberElement
                                     options={{
                                         style: elementStyle,
                                         placeholder: 'Card number'
                                     }}
-                                    
                                 />
                             </div>
                         </CardNumber>
@@ -126,11 +125,10 @@ const CreditCardDetail = () => {
                             type="text"
                             placeholder="Cardholder name"
                             variant="outlined"
-                            style={{marginBottom: '23px'}}
                         />
-                        <div style={{display: 'flex', flexDirection: 'row'}}>
+                        <div className={styles.flexDirectionRow}>
                             <Container margin="20px">
-                                <div style={{opacity: 0.2}}>
+                                <div className={styles.smallOpacity}>
                                     <CardExpiryElement
                                         options={{
                                             style: elementStyle,
@@ -140,7 +138,7 @@ const CreditCardDetail = () => {
                                 </div>
                             </Container>
                             <Container>
-                                <div style={{opacity: 0.2}}>
+                                <div className={styles.smallOpacity}>
                                     <CardCvcElement 
                                         options={{
                                             style: elementStyle,
@@ -155,30 +153,32 @@ const CreditCardDetail = () => {
                 </Elements>
                 <SubscriptionInfoContainer>
                     <SubscriptionString>Subscription</SubscriptionString>
-                    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                        <MonthlyString>Monthly</MonthlyString>
-                        <CostString><strong>£12</strong><strong style={{opacity: 0.3}}> / mo</strong></CostString>
-                    </div>
-                    <Line/>
-                    <div style={{display: 'flex', flexDirection: 'row', marginBottom: '10px'}}>
-                        <Check style={{marginTop: '9px', marginRight: '26px', marginLeft: '25px'}}/>
-                        <BenefitsString>Unlimited Bandwitch</BenefitsString>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row', marginBottom: '10px'}}>
-                        <Check style={{marginTop: '9px', marginRight: '26px', marginLeft: '25px'}}/>
-                        <BenefitsString>Encrypted Connection</BenefitsString>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row', marginBottom: '10px'}}>
-                        <Check style={{marginTop: '9px', marginRight: '26px', marginLeft: '25px'}}/>
-                        <BenefitsString>Yes Traffic Logs</BenefitsString>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row', marginBottom: '10px'}}>
-                        <Check style={{marginTop: '9px', marginRight: '26px', marginLeft: '25px'}}/>
-                        <BenefitsString>Works on All Devices</BenefitsString>
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row', marginBottom: '10px'}}>
-                        <Check style={{marginTop: '9px', marginRight: '26px', marginLeft: '25px'}}/>
-                        <BenefitsString>Connect Anyware</BenefitsString>
+                    <div>
+                        <div className={styles.paragraph}>
+                            <MonthlyString>Monthly</MonthlyString>
+                            <CostString><strong>£12</strong><strong style={{opacity: 0.3}}> / mo</strong></CostString>
+                        </div>
+                        <Line/>
+                        <div className={styles.paragraph}>
+                            <Check className={styles.checkContainer}/>
+                            <BenefitsString>Unlimited Bandwitch</BenefitsString>
+                        </div>
+                        <div className={styles.paragraph}>
+                            <Check className={styles.checkContainer}/>
+                            <BenefitsString>Encrypted Connection</BenefitsString>
+                        </div>
+                        <div className={styles.paragraph}>
+                            <Check className={styles.checkContainer}/>
+                            <BenefitsString>Yes Traffic Logs</BenefitsString>
+                        </div>
+                        <div className={styles.paragraph}>
+                            <Check className={styles.checkContainer}/>
+                            <BenefitsString>Works on All Devices</BenefitsString>
+                        </div>
+                        <div className={styles.paragraph}>
+                            <Check className={styles.checkContainer}/>
+                            <BenefitsString>Connect Anyware</BenefitsString>
+                        </div>
                     </div>
                 </SubscriptionInfoContainer>
             </div>

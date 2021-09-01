@@ -38,8 +38,8 @@ const Layout: React.FC<IProps> = ({ children }: IProps) => {
                     <MenuItem>About</MenuItem>
                   </Typography>
               </div>
-              <div style={{marginRight: '165px'}}> 
-                <LoginButton style={{marginRight: '14px'}}>Login</LoginButton>
+              <div className={styles.buttonContainer}> 
+                <LoginButton>Login</LoginButton>
                 <SignUpButton>Signup</SignUpButton>
               </div>
             </Toolbar>
@@ -65,7 +65,7 @@ const Layout: React.FC<IProps> = ({ children }: IProps) => {
                   xs
                   alignItems="flex-end"
                 >
-                  <Typography color="inherit" variant="body2">
+                  <Typography color="inherit" variant="body2" component={'span'}>
                     <div className={styles.companyColumn}>
                       <CompanyName>I-TAPP</CompanyName>
                       <Copyright>Copyright © 2021 I-TAPP</Copyright>

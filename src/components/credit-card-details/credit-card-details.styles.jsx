@@ -25,6 +25,7 @@ export const CreditCardDetailsString = styled.div`
 `
 
 export const Input = styled(TextField)`
+    margin-bottom: 23px;
     width: 454px;
     height: 47px;
     border-radius: 8px;
@@ -47,6 +48,7 @@ export const CardNumber = styled.div`
     box-sizing: border-box;
     border-radius: 8px;
     padding: 15px 10px;
+    margin-bottom: 23px;
 `
 
 export const Container = styled.div`

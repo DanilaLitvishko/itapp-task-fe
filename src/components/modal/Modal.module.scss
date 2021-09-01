@@ -1,0 +1,24 @@
+@import "../../styles/_functions.scss";
+
+div.modalWindow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.modalCard {
+    outline: none;
+    max-height: 90%;
+    overflow: auto;
+    width: "90%";
+
+    form {
+        width: 100%;
+    }
+}
+
+div.modalCardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
