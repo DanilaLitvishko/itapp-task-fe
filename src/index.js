@@ -1,13 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from "styled-components";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+
+import { store, persistor } from "./redux/store";
+import mainTheme from "./themes/main.theme";
+import App from './App';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <MuiThemeProvider theme={mainTheme}>
+        <ThemeProvider theme={mainTheme}>
+          <PersistGate persistor={persistor}>
+            <App />
+          </PersistGate>
+        </ThemeProvider>
+      </MuiThemeProvider>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 

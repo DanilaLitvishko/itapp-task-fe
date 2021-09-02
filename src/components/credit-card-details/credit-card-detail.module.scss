@@ -1,0 +1,81 @@
+@import "../../styles/_functions.scss";
+
+button.styledButton,
+a.styledBackButton {
+    width: rem(54px);
+}
+
+.splitForm {
+    :global(.StripeElement) {
+        padding: rem(10.5px) rem(14px);
+        margin: rem(8px) 0 rem(12px);
+        border: rem(1px) solid rgba(0, 0, 0, 0.23);
+        border-radius: rem(4px);
+    }
+
+    :global(.StripeElement--invalid) {
+        border: rem(1px) solid red;
+        margin-bottom: rem(3px);
+    }
+
+    :global(.StripeElement--invalid + div) {
+        font-size: 0.75rem;
+        margin-left: rem(14px);
+        margin-right: rem(14px);
+    }
+}
+
+div.field {
+    margin-bottom: rem(12px);
+}
+
+div.fieldTitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: rem(12px);
+    padding-right: rem(32px) !important;
+
+    @media (max-width: $breakpoint-md) {
+        width: 100%;
+    }
+}
+
+.errorContainer {
+    font-size: 80%;
+    color: red;
+}
+
+.errorText {
+    margin-top: 0;
+}
+
+.flexDirectionRow{
+    display: flex;
+    flex-direction: row;
+}
+
+.smallOpacity{
+    opacity: 0.2;
+}
+
+.creditCardDetailContainer{
+    margin-top: 47px;
+    margin-left: 81px;
+}
+
+.paragraph{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    &:first-child {
+        margin-bottom: 0px;
+        justify-content: space-between;
+    }
+}
+
+.checkContainer{
+    margin-top: 9px;
+    margin-right: 26px; 
+    margin-left: 25px;
+}
